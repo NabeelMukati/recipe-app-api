@@ -14,9 +14,9 @@ EXPOSE 8000
 
 
 #creates a virtual environment
-RUN python -m venv /py && \ 
+RUN python -m venv /py && \
     #upgrades pip for the virtual env
-    /py/bin/pip install -upgrade pip && \
+    /py/bin/pip install --upgrade pip && \
     #install the requirements file 
     /py/bin/pip install -r /tmp/requirements.txt && \
     rm -rf /tmp && \
