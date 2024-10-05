@@ -6,7 +6,11 @@ services:
   app:
     build:
       context: .
-    port:
+      #if we run docker compose which we only do for development make dev = True
+      #we do this so we can also use the requirment.dev stuff too.
+      args:
+        -DEV=true
+    ports:
       - "8000:8000"
     volumes:
       - ./app:/app

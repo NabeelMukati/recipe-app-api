@@ -1,0 +1,2 @@
+#this is for local development only 
+flake8>=3.9.2, <3.10
