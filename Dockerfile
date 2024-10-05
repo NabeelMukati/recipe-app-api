@@ -21,7 +21,7 @@ RUN python -m venv /py && \
     #install the requirements file 
     /py/bin/pip install -r /tmp/requirements.txt && \
     if [ $DEV = "true" ]; \
-        then /pybin/pip install -requirements.dev.txt ; \
+        then /pybin/pip install -r /temp/requirements.dev.txt ; \
     fi && \
     rm -rf /tmp && \
     #adds a new user in the docker image. user is allowed to do whatever 
