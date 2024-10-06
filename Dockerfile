@@ -7,7 +7,7 @@ ENV PYTHONUNBBUFFERED 1
 
 #copies the requirements.txt file into the docker image
 COPY ./requirements.txt /tmp/requirements.txt
-COPY ./requirements.dev.txt /tmp/requirements.txt
+COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 #copies the app directory to /app
 COPY ./app /app 
 WORKDIR /app
@@ -21,7 +21,7 @@ RUN python -m venv /py && \
     #install the requirements file 
     /py/bin/pip install -r /tmp/requirements.txt && \
     if [ $DEV = "true" ]; \
-        then /pybin/pip install -r /temp/requirements.dev.txt ; \
+        then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
     fi && \
     rm -rf /tmp && \
     #adds a new user in the docker image. user is allowed to do whatever 

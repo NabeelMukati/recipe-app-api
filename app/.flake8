@@ -1,0 +1,9 @@
+
+[flake8]
+#flake8 is a testing
+#what i should not need the testing langugage to check.
+exclude =
+    migrations,
+    __pycache__,
+    manage.py,
+    settings.py
