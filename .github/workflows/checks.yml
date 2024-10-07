@@ -1,0 +1,29 @@
+---
+# three - indictates it's a yml file
+name: Checks
+# name on github actions
+
+on: [push]
+# these checks happen when we do a push
+
+jobs:
+  # this is where the definition of the workflow happpens 
+  test-lint:
+  #job ID: is test-lint
+
+    name: Test and Lint
+    # display name of the job is test and lint 
+
+    run-on: ubuntu-20.04
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with: 
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test 
+        run: docker compose run --rm app sh -c "python manage.py test"
+      - name: Lint
+        run: docker compose run --rm app sh -c "flake8"

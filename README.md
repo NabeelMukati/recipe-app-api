@@ -1,6 +1,9 @@
 # recipe-app-api
 app which usees docker and Swagger API
 
+## Secrets and pre stuff:
+Make a docker secret tokens so when we get github actions we have a bigger rate limit. 
+
 ## Docker setup:
 requirements.txt: packages needed to run the software in both dev and production environments which tells the docker image what exactly to load and downlaod when starting the project.
 
